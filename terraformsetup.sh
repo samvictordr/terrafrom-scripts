@@ -27,7 +27,6 @@ head -n 1)_linux_amd64.zip -o terraform.zip || error_exit "Failed to download Te
     echo "Terraform installation completed."
 }
 
-# Function to configure Terraform
 configure_terraform() {
     echo "Configuring Terraform..."
     # Check if Terraform is installed
@@ -35,7 +34,6 @@ configure_terraform() {
         error_exit "Terraform is not installed."
     fi
 
-    # Initialize Terraform configuration (optional)
     echo "Do you want to initialize Terraform configuration? (y/n)"
     read -r init_choice
     if [ "$init_choice" = "y" ]; then
@@ -47,14 +45,10 @@ configure_terraform() {
     terraform --version || error_exit "Failed to verify Terraform installation."
 }
 
-# Main function
 main() {
-    # Install Terraform
     install_terraform
-    # Configure Terraform
     configure_terraform
 }
 
-# Execute main function
 main
 
